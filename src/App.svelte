@@ -1,7 +1,7 @@
 <script>
   import NewChar from './NewChar.svelte';
   import Info from './Info.svelte';
-  import darkMode from './darkMode.js';
+  import darkMode from './darkmode.js';
   export let name;
 
   function toggleDarkMode() {
