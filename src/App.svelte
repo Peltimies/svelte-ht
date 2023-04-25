@@ -79,7 +79,7 @@
       </div>
     </div>
   </main>
-  <footer />
+  <footer><p>Made by JaakkoS</p></footer>
 </body>
 
 <style>
