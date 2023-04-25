@@ -1,5 +1,5 @@
 <script>
-  import darkMode from './darkMode.js';
+  import darkMode from './darkmode.js';
 
   let modalStyle = '';
 
