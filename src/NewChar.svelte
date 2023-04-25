@@ -54,8 +54,8 @@
       primAtr: 'dex',
       hd: '1d6',
       alignment: 'any non-good',
-      weapons: 'any',
-      armor: 'light',
+      weapons: ['any'],
+      armor: ['light'],
       skills: [
         'case target',
         'climb',
@@ -90,7 +90,7 @@
       className: 'bard',
       primAtr: 'cha',
       hd: '1d10',
-      alignment: 'any',
+      alignment: ['any'],
       weapons: [
         'broadsword',
         'bows',
@@ -123,9 +123,9 @@
       className: 'cleric',
       primAtr: 'wis',
       hd: '1d8',
-      alignment: 'any',
-      weapons: 'blunt',
-      armor: 'any',
+      alignment: ['any'],
+      weapons: ['blunt'],
+      armor: ['any'],
       skills: ['chosen spells', 'turn undead'],
     },
   ];
@@ -303,7 +303,8 @@
     border: none;
     border-bottom: 1px solid black;
     background-color: transparent;
-    color: #782222;
+    font-weight: bold;
+    color: red;
   }
 
   .save {

@@ -1,10 +1,10 @@
 <script>
   import darkMode from './darkmode.js';
 
-  let modalStyle = '';
+  let modalStyle;
 
   $: modalStyle = `
-  background-color: ${$darkMode ? '#333' : 'var(--bg-color'};
+  background-color: ${$darkMode ? '#333' : 'fff'};
     color: ${$darkMode ? '#fff' : '#333'};
     transition: 1s;
   `;
@@ -38,7 +38,7 @@
     top: 10vh;
     width: 80%;
     max-height: 80vh;
-
+    background-color: aliceblue;
     border-radius: 5px;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
