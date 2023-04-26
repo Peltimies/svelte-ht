@@ -28,7 +28,7 @@
   $: console.log(characters);
 
   let darken = '';
-
+  //ternary joka vaihtelee tumman ja vaalean teeman väliltä koko body elementtiä//
   $: darken = `
     background-color: ${$darkMode ? '#333' : 'var(--bg-color'};
     color: ${$darkMode ? '#fff' : '#333'};
@@ -36,7 +36,6 @@
   `;
 </script>
 
-<!--ternary joka vaihtelee tumman ja vaalean teeman väliltä koko body elementtiä-->
 <body style={darken}>
   <main class="container">
     <div class="content">
@@ -79,25 +78,42 @@
       </div>
     </div>
   </main>
-  <footer><p>Made by JaakkoS</p></footer>
+  <footer class="footer"><p>Made by Jaakko</p></footer>
 </body>
 
 <style>
+  * {
+    border: 1px solid red;
+  }
+
+  .footer {
+    height: 50px;
+    /* the height of your footer */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
   .title {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
   }
+
   body {
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 20px;
+    border: 1px solid transparent;
+    min-height: 100%;
+
+    /* the height of your footer */
   }
   .container {
     display: flex;
   }
 
-  /* Center the app on the page */
   .app {
     display: flex;
     justify-content: center;
@@ -105,7 +121,6 @@
     height: 10vh;
   }
 
-  /* Set the width of the main content area */
   .content {
     width: 80%;
     max-width: 1200px;
@@ -113,7 +128,6 @@
     padding: 20px;
   }
 
-  /* Style the heading */
   h1 {
     font-size: 36px;
     font-weight: bold;
@@ -121,7 +135,6 @@
     text-align: center;
   }
 
-  /* Style the button */
   button {
     display: inline-block;
     padding: 10px 20px;
@@ -135,7 +148,6 @@
     transition: background-color 0.3s ease;
   }
 
-  /* Change the background color of the button on hover */
   button:hover {
     background-color: #549381;
     color: rgba(255, 68, 0, 0.626);
