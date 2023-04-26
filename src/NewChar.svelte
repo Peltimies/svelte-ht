@@ -423,14 +423,6 @@
 </Modali>
 
 <style>
-  .choice {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: stretch;
-  }
   .modal-content {
     display: flex;
     flex-direction: column;
@@ -441,16 +433,6 @@
     align-content: stretch;
   }
 
-  .inputs {
-    display: flex;
-    gap: 20px;
-  }
-
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
   input {
     border: none;
     border-bottom: 1px solid black;

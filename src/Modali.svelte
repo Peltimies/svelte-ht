@@ -36,7 +36,7 @@
     padding: 1rem;
     position: fixed;
     top: 10vh;
-    width: auto;
+    width: 50vh;
     max-height: 80vh;
     background-color: aliceblue;
     border-radius: 5px;
