@@ -36,60 +36,49 @@
   `;
 </script>
 
-<body style={darken}>
-  <main class="container">
-    <div class="content">
-      <button on:click={toggleDarkMode}>
-        {#if $darkMode}
-          Turn off dark mode
-        {:else}
-          Turn on dark mode
-        {/if}
-      </button>
-      <div class="title">
-        <h1>Character Generator</h1>
-        <p>Harjoitustyö by <b>{name}</b></p>
-      </div>
-      <div class="app">
-        <button class="glow-on-hover" on:click={() => (showModal = true)}
-          >Roll a Character</button
-        >
-
-        {#if showModal}
-          <NewChar on:save={addChar} on:close={() => (showModal = false)} />
-        {/if}
-      </div>
-      <div class="character info">
-        {#each characters as character}
-          <Info
-            on:remove={removeWithId}
-            name={character.chosenName}
-            age={character.chosenAge}
-            race={character.chosenRace}
-            gender={character.chosenGender}
-            stats={character.rolledStats}
-            classi={character.chosenClass}
-            hitDie={character.hd}
-            alignment={character.alignment}
-            weapons={character.weapons}
-            armor={character.armor}
-            skills={character.skills}
-          />{/each}
-      </div>
+<main class="container" style={darken}>
+  <div class="content">
+    <button on:click={toggleDarkMode}>
+      {#if $darkMode}
+        Turn off dark mode
+      {:else}
+        Turn on dark mode
+      {/if}
+    </button>
+    <div class="title">
+      <h1>Character Generator</h1>
+      <p>Harjoitustyö by <b>{name}</b></p>
     </div>
-  </main>
-  <footer class="footer"><p>Made by Jaakko</p></footer>
-</body>
+    <div class="app">
+      <button class="glow-on-hover" on:click={() => (showModal = true)}
+        >Roll a Character</button
+      >
+
+      {#if showModal}
+        <NewChar on:save={addChar} on:close={() => (showModal = false)} />
+      {/if}
+    </div>
+    <div class="character info">
+      {#each characters as character}
+        <Info
+          on:remove={removeWithId}
+          name={character.chosenName}
+          age={character.chosenAge}
+          race={character.chosenRace}
+          gender={character.chosenGender}
+          stats={character.rolledStats}
+          classi={character.chosenClass}
+          hitDie={character.hd}
+          alignment={character.alignment}
+          weapons={character.weapons}
+          armor={character.armor}
+          skills={character.skills}
+        />{/each}
+    </div>
+  </div>
+</main>
 
 <style>
-  .footer {
-    height: 50px;
-    /* the height of your footer */
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
   .title {
     display: flex;
     justify-content: center;
@@ -97,17 +86,9 @@
     align-items: center;
   }
 
-  body {
-    height: 100%;
-    width: 100%;
-    padding-bottom: 20px;
-    border: 1px solid transparent;
-    min-height: 100%;
-
-    /* the height of your footer */
-  }
   .container {
     display: flex;
+    height: 100vh;
   }
 
   .app {
@@ -149,7 +130,7 @@
     color: rgba(255, 68, 0, 0.626);
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 375px) {
     main {
       max-width: none;
     }

@@ -36,12 +36,12 @@
     padding: 1rem;
     position: fixed;
     top: 10vh;
-    width: 80%;
+    width: auto;
     max-height: 80vh;
     background-color: aliceblue;
     border-radius: 5px;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    overflow: scroll;
+    overflow: auto;
   }
 </style>
