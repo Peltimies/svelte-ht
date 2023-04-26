@@ -82,10 +82,6 @@
 </body>
 
 <style>
-  * {
-    border: 1px solid red;
-  }
-
   .footer {
     height: 50px;
     /* the height of your footer */
