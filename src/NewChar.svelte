@@ -335,111 +335,99 @@
 </script>
 
 <Modali>
-  <h2>Roll your character</h2>
   <button class="close-btn" on:click={close} name="close"
     ><img class="imits" src="./pics/svgcross.svg" alt="Exit cross" /></button
   >
   <div class="modal-content">
-    <div class="inputs">
-      <div>
-        <label for="name">Name</label>
+    <h2>Roll your character</h2>
+    <label for="name">Name</label>
+    <input
+      on:blur={() => {
+        nameVisited = true;
+      }}
+      type="text"
+      bind:value={chosenName}
+    />
+
+    {#if nameVisited && !nameValid}
+      <p id="varoitus" style="color: red;">{warning}</p>
+    {/if}
+
+    <label for="age">Age</label>
+    <input
+      on:blur={() => {
+        ageVisited = true;
+      }}
+      type="number"
+      bind:value={chosenAge}
+    />
+
+    {#if ageVisited && !ageValid}
+      <p id="varoitus" style="color: red;">{ageWarning}</p>
+    {/if}
+    <hr />
+    <select id="races" bind:value={chosenRace}>
+      {#each races as race}
+        <option value={race}>{race}</option>
+      {/each}
+    </select>
+    <hr />
+    {#each genders as gender}
+      <label>
         <input
-          on:blur={() => {
-            nameVisited = true;
-          }}
-          type="text"
-          bind:value={chosenName}
+          type="radio"
+          name="gender"
+          value={gender}
+          bind:group={chosenGender}
         />
+        {gender}
+      </label>
+    {/each}
 
-        {#if nameVisited && !nameValid}
-          <p id="varoitus" style="color: red;">{warning}</p>
-        {/if}
-      </div>
-      <div>
-        <label for="age">Age</label>
-        <input
-          on:blur={() => {
-            ageVisited = true;
-          }}
-          type="number"
-          bind:value={chosenAge}
-        />
+    <button class="die" on:click={allStats}
+      ><img class="d20" src="./pics/twenty-sided-dice.svg" alt="d20" />
+    </button>
 
-        {#if ageVisited && !ageValid}
-          <p id="varoitus" style="color: red;">{ageWarning}</p>
-        {/if}
-      </div>
+    {#if str}
+      <p>Str is {str}</p>
+      <p>Dex is {dex}</p>
+      <p>Con is {con}</p>
+      <p>Int is {int}</p>
+      <p>Wis is {wis}</p>
+      <p>Cha is {cha}</p>
+    {:else}
+      <p>Str is {str}</p>
+      <p>Dex is {dex}</p>
+      <p>Con is {con}</p>
+      <p>Int is {int}</p>
+      <p>Wis is {wis}</p>
+      <p>Cha is {cha}</p>
+    {/if}
 
-      <select id="races" bind:value={chosenRace}>
-        {#each races as race}
-          <option value={race}>{race}</option>
-        {/each}
-      </select>
-      <div>
-        {#each genders as gender}
-          <label>
-            <input
-              type="radio"
-              name="gender"
-              value={gender}
-              bind:group={chosenGender}
-            />
-            {gender}
-          </label>
-        {/each}
-      </div>
-    </div>
-    <div class="footer">
-      <div class="footer-content">
-        <button class="die" on:click={allStats}
-          ><img class="d20" src="./pics/twenty-sided-dice.svg" alt="d20" />
-        </button>
+    <select bind:value={chosenClass}>
+      {#each classes as classi}
+        <option value={classi}
+          >{classi.className.charAt(0).toUpperCase() +
+            classi.className.slice(1)}</option
+        >
+      {/each}
+    </select>
 
-        <div class="choice">
-          {#if str}
-            <p>Str is {str}</p>
-            <p>Dex is {dex}</p>
-            <p>Con is {con}</p>
-            <p>Int is {int}</p>
-            <p>Wis is {wis}</p>
-            <p>Cha is {cha}</p>
-          {:else}
-            <p>Str is {str}</p>
-            <p>Dex is {dex}</p>
-            <p>Con is {con}</p>
-            <p>Int is {int}</p>
-            <p>Wis is {wis}</p>
-            <p>Cha is {cha}</p>
-          {/if}
-
-          <select bind:value={chosenClass}>
-            {#each classes as classi}
-              <option value={classi}
-                >{classi.className.charAt(0).toUpperCase() +
-                  classi.className.slice(1)}</option
-              >
-            {/each}
-          </select>
-        </div>
-
-        <div>
-          <button
-            class="save"
-            disabled={!nameValid || !ageValid || !str}
-            on:click={save}
-            name="save">Save Character</button
-          >
-        </div>
-      </div>
-    </div>
-  </div></Modali
->
+    <button
+      class="save"
+      disabled={!nameValid || !ageValid || !str}
+      on:click={save}
+      name="save">Save Character</button
+    >
+  </div>
+</Modali>
 
 <style>
   .choice {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     align-content: stretch;
   }
@@ -449,6 +437,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: stretch;
+    column-gap: 100px;
     align-content: stretch;
   }
 
