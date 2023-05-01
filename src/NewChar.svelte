@@ -257,7 +257,7 @@
       hd: '1d4',
       weapons: 'simple',
       armor: 'none',
-      skills: 'spell casting',
+      skills: ['spell casting'],
     },
 
     {

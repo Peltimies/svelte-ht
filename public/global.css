@@ -1,8 +1,3 @@
-:root {
-  --bg-color: white;
-  --text-color: #000;
-  --primary-color: #5c867a;
-}
 html,
 body {
   min-height: 100%;

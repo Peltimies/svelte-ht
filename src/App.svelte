@@ -1,12 +1,9 @@
 <script>
   import NewChar from './NewChar.svelte';
+  import darkMode from './darkmode';
   import Info from './Info.svelte';
-  import darkMode from './darkmode.js';
-  export let name;
 
-  function toggleDarkMode() {
-    darkMode.update((value) => !value);
-  }
+  export let name;
 
   //ce.detaili ottaa vastaan välitetyn datan äitikomponentilla muualla välitetyn custom eventin avulla
   function removeWithId(ce) {
@@ -26,25 +23,10 @@
     showModal = false;
   }
   $: console.log(characters);
-
-  let darken = '';
-  //ternary joka vaihtelee tumman ja vaalean teeman väliltä koko body elementtiä//
-  $: darken = `
-    background-color: ${$darkMode ? '#333' : 'var(--bg-color'};
-    color: ${$darkMode ? '#fff' : '#333'};
-    transition: 1s;
-  `;
 </script>
 
-<main class="container" style={darken}>
+<main class="container">
   <div class="content">
-    <button on:click={toggleDarkMode}>
-      {#if $darkMode}
-        Turn off dark mode
-      {:else}
-        Turn on dark mode
-      {/if}
-    </button>
     <div class="title">
       <h1>Character Generator</h1>
       <p>Harjoitustyö by <b>{name}</b></p>
@@ -118,7 +100,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background-color: var(--primary-color);
+    background-color: #5c867a;
     border: none;
     border-radius: 5px;
     cursor: pointer;

@@ -4,9 +4,6 @@
 
 # Dokumentaatio
 
-Dark Mode: Tein tämän pohjalta tummennustoiminnot ja sen lisäksi Eemi auttoi minua vielä sen toteuttamisessa
-https://svelte.dev/repl/ed4fef4beceb4b0eb295d1f9fdf3bd62?version=3.6.9
-
 Radio button: Otin radio -napin täältä, muokkasin sitä hieman
 https://codepen.io/AbubakerSaeed/pen/MWaEqJP
 

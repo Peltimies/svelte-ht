@@ -1,17 +1,8 @@
 <script>
-  import darkMode from './darkmode.js';
-
-  let modalStyle;
-
-  $: modalStyle = `
-  background-color: ${$darkMode ? '#333' : 'fff'};
-    color: ${$darkMode ? '#fff' : '#333'};
-    transition: 1s;
-  `;
 </script>
 
 <div class="backdrop" />
-<div class="modal" style={modalStyle}>
+<div class="modal">
   <header>
     <slot name="header" />
   </header>
