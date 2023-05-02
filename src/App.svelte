@@ -1,6 +1,5 @@
 <script>
   import NewChar from './NewChar.svelte';
-  import darkMode from './darkmode';
   import Info from './Info.svelte';
 
   export let name;
